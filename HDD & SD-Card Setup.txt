@@ -47,6 +47,7 @@ https://raspiblitz.com/raspiblitz-v1.3-2019-09-05.img.gz
 
 Insert both into your raspiblitz hardware and now start the setup via ssh
 ssh admin@IP Address 
+PW: raspiblitz
 
 
 
