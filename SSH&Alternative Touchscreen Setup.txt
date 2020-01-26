@@ -1,0 +1,50 @@
+For the setup via ssh follow the official guide here:
+https://github.com/rootzoll/raspiblitz
+
+At the workshop we'll setup mainnet bitcoin & lightning nodes.
+
+Feel free to choose between having it on the "public" clearnet - so with an IP anybody can see and potentially trace
+OR
+"Private" via the TOR integration
+
+They both have different advantages.
+PUBLIC
+Gives you an easier way to pay to basically anyboody (see disadvantages of tor) and 
+Can take advantage of the Mobile wallets that you can directly connect to your raspiblitz if it has a public ip
+Currently those are:
+    ZAP (iOS/Android)
+    Shango (iOS/Android)
+    Zeus (iOS/Android)
+
+PRIVATE
+TOR should give you a higher degree of privacy as your IP address is not visible to anyone. 
+This has the side effect that you don't "publicly" announce you are involved with bitcoin and have open lightning channels.
+The big disadvantage I have found is that "incoming" payments coming from the clearnet can often not be routed to you.
+It also can make it harder to pay "out" of tor to "public" lightning nodes.
+
+
+
+
+After you have chosen your weapon now setup the touchscreen.
+If you have the official touchscreen it might be as easy as activating "touchscreen" in Services of the raspiblitz
+
+This wasn't the case for me and for many others that have tried.
+
+So my workaround was adding the driver needed for my touchscreen manually.
+1. Go to console on the raspiblitz. Should read something like admin@raspiblitz:
+
+2. Git clone your driver. A driver for most raspipi screens can be found here:
+git clone https://github.com/goodtft/LCD-show.git
+
+3. Change permission 
+chmod -R 755 LCD-show
+
+4. Load the driver
+cd LCD-show/
+./LCD32-show <- with ls checkout all files that are in the folder, you might need to start a different one, I had this 3,2 inch screen
+
+If you want a turned screen in the other direction the command reads
+./LCD32-show 180
+instead
+
+This should work if your screen was before completely white, raspiblitz should now restart and show you it's status. 
